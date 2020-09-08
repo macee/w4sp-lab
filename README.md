@@ -8,3 +8,11 @@ Both Kali and the w4sp-lab are moving targets and are subject to change. Always 
 ## Note for Kali 2020
 
 You must first install package `python3-docker`. Then you must add user `w4sp-lab` to group docker prior to running the thing.
+
+
+## Note to reistablish internet connection
+
+Once you have shutdown the lab the way to establish internet connection after termination of the lab is through running the command below.
+
+```sudo ip link delete docker0 && sudo ip link set eth0 up```
+

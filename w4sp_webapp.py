@@ -210,10 +210,12 @@ def add_vic():
 @app.route('/is_ips')
 def is_ips():
     """quick check to see if suricata is running"""
-
+    var = psef('suricata')
     if psef('suricata'):
+        print(var)
         return 'ok',200
     else:
+        print(var)
         return 'error',404
 
 

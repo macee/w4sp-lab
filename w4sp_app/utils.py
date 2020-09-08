@@ -80,7 +80,11 @@ def r(cmd):
             cmd.insert(n,v)
 
     print(cmd)
-    return subprocess.check_output(cmd)
+    try:
+    	return subprocess.check_output(cmd)
+    except:
+    	print("\033[1;31;40m Subprocess errored out. Attempting command again!!!\033[0;37;40m")
+    	return subprocess.check_output(cmd)
 
 
 def docker_build(image_path):
@@ -143,9 +147,10 @@ def docker_clean():
             except:
                 pass
 
-    r('service network-manager start')
+    #r('service network-manager start')
     r('service networking restart')
     r('service docker restart')
-
+    #r('systemctl restart networking')
+    #r('systemctl restart docker')
 
 
